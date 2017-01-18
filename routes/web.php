@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/users', function () {
     return view('welcome');
+});
+
+Route::get('/sensors', function () {
+    return view('sensor');
+});
+
+Route::get('/lights', function () {
+    return view('light');
 });

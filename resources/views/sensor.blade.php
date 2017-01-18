@@ -78,7 +78,7 @@
         Welcome to the user manager
     </h1>
 </div>
-<script type="text/template" class="template" id="userForm">
+<script type="text/template" class="template" id="sensorForm">
 
     <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
@@ -88,11 +88,10 @@
         </header>
 
         <form method="POST" action="#">
-            Name <input type="text" name="name" value="<%- rc.name %>"><br>
-            Password <input type="text" name="password" value="<%- rc.password %>"><br>
-            Email <input type="text" name="email" value="<%- rc.email %>"><br>
-            Facepattern <input type="text" name="facepattern" value="<%- rc.facepattern %>"><br>
-            Type <input type="text" name="type" value="<%- rc.type %>"><br>
+            X position <input type="text" name="x_pos"><br>
+            Y position <input type="text" name="y_pos"><br>
+            Group <input type="text" name="group_id"><br>
+            User_id <input type="text" name="user_id"><br>
             <input type="hidden" name="id" value="<%- rc.id %>"><br>
             <input type="button" name="submit" onclick="act(this.parentNode); return false;" value="<%- rc.buttonType %>">
         </form>
@@ -103,54 +102,32 @@
 
 <script type="text/javascript">
     _.templateSettings.variable = "rc";
-    var renderSub = _.template($('#userForm').remove().text())
+    var renderSub = _.template($('#sensorForm').remove().text())
 
 
-    $.get("/api/users", [], function (data) {
+    $.get("/api/sensors", [], function (data) {
         renderParent(data);
     });
 
     function act(form) {
-
-        if(form.id.value == -1){
-            window.alert("Create new")
-
-            $.post("/api/users", {
-                "name" : form.name.value,
-                "password" : form.password.value,
-                "type" : form.type.value,
-                "email" : form.email.value,
-                "facepattern" : form.facepattern.value
-            }, function(data){
+        window.alert("Save lamp: " + form.id.value)
+        $.put("api/sensors/" + form.id.value,
+            {
+                "x" : form.x_pos.value,
+                "y" : form.y_pos.value,
+                "user_id" : form.user_id.value,
+                'group_id' : form.group_id.value
+            },function(data){
                 window.alert("Success")
-
                 form.id.value = data.id
                 form.submit.value = "Save"
                 console.log(data);
             })
-
-        } else {
-            window.alert("Save userid: " + form.id.value)
-            $.put("api/users/" + form.id.value,
-                {
-                    "name" : form.name.value,
-                    "password" : form.password.value,
-                    "type" : form.type.value,
-                    "email" : form.email.value,
-                    "facepattern" : form.facepattern.value
-                },function(data){
-                    window.alert("Success")
-
-                    form.id.value = data.id
-                    form.submit.value = "Save"
-                    console.log(data);
-                })
-        }
     }
 
     function renderParent(parts) {
         var template = _.template(
-            $("script#listUsers").html()
+            $("script#listSensors").html()
         );
 
         _.map(parts, function(item){
@@ -165,24 +142,13 @@
             template(templateData)
         );
     }
-
-    function addNew(){
-        $("#newButton").after(
-            renderSub({buttonType : "Create", id : -1})
-        );
-    }
-
-
 </script>
 
 
-<script type="text/template" class="template" id="listUsers">
-
-    <button id="newButton" onclick="addNew();">New User</button>
+<script type="text/template" class="template" id="listSensors">
     <% for (var i = rc.parts.length -1; i >= 0; i--) { %>
-<%= renderSub(rc.parts[i]) %>
-<% } %>
-
+    <%= renderSub(rc.parts[i]) %>
+    <% } %>
 </script>
 
 
