@@ -1,0 +1,760 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2017-01-18T10:40:14.381Z",
+	"__export_source": "insomnia.desktop.app:v4.0.13",
+	"resources": [
+		{
+			"_id": "wrk_a667ebb6997549018eac34cf26cbceca",
+			"parentId": null,
+			"modified": 1484674366885,
+			"created": 1484674366885,
+			"name": "IOT",
+			"description": "",
+			"certificates": [],
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_4afc0fac0f2d4576858fdbb48c14ebc3",
+			"parentId": "wrk_a667ebb6997549018eac34cf26cbceca",
+			"modified": 1484674393591,
+			"created": 1484674393591,
+			"name": "Base Environment",
+			"data": {},
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_548f282d7a8b49a19cd1ed99fbea63c1",
+			"parentId": "wrk_a667ebb6997549018eac34cf26cbceca",
+			"modified": 1484699702734,
+			"created": 1484674393626,
+			"name": "Default Jar",
+			"cookies": [],
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_19949a0025fb49a486ef51724540aa19",
+			"parentId": "wrk_a667ebb6997549018eac34cf26cbceca",
+			"modified": 1484696278804,
+			"created": 1484696259397,
+			"name": "Users",
+			"environment": {},
+			"metaSortKey": -1484692138605,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_3acf2f21515d4027940e74e1fc0cd1c3",
+			"parentId": "wrk_a667ebb6997549018eac34cf26cbceca",
+			"modified": 1484692944600,
+			"created": 1484692944600,
+			"name": "Groups",
+			"environment": {},
+			"metaSortKey": -1484692944600,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_6ebd56ece44d4dbca92463eadaf654ec",
+			"parentId": "wrk_a667ebb6997549018eac34cf26cbceca",
+			"modified": 1484694309244,
+			"created": 1484694300105,
+			"name": "Lamps",
+			"environment": {},
+			"metaSortKey": -1484692744672.5,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_bc2cd2dd48b34432a776519310458f66",
+			"parentId": "wrk_a667ebb6997549018eac34cf26cbceca",
+			"modified": 1484693523726,
+			"created": 1484692118837,
+			"name": "Rooms",
+			"environment": {},
+			"metaSortKey": -1484692944650,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_ce81e3f77ac34a84a80ef7720aa44124",
+			"parentId": "wrk_a667ebb6997549018eac34cf26cbceca",
+			"modified": 1484693582157,
+			"created": 1484693561683,
+			"name": "Sensors",
+			"environment": {},
+			"metaSortKey": -1484692744672.5,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_e45d4bf0cb4a49bfb40283fe42ed12e3",
+			"parentId": "wrk_a667ebb6997549018eac34cf26cbceca",
+			"modified": 1484692144890,
+			"created": 1484692144890,
+			"name": "Priorities",
+			"environment": {},
+			"metaSortKey": -1484692144890,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_06432a1856464a63b6fd8f5e8119dcba",
+			"parentId": "fld_19949a0025fb49a486ef51724540aa19",
+			"modified": 1484696304533,
+			"created": 1484696259415,
+			"url": "http://iot.local/api/users/1",
+			"name": "Delete",
+			"method": "DELETE",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692178223,
+			"_type": "request"
+		},
+		{
+			"_id": "req_19862da831c3461d9450e1e7b68eb1c1",
+			"parentId": "fld_19949a0025fb49a486ef51724540aa19",
+			"modified": 1484696347799,
+			"created": 1484696259453,
+			"url": "http://iot.local/api/users",
+			"name": "Create",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\" : \"user1\",\n\t\"password\" : \"1234\",\n\t\"type\" : \"USER1\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1484692178324,
+			"_type": "request"
+		},
+		{
+			"_id": "req_49f5dedbc3f74d9d99ccb5675edb6646",
+			"parentId": "fld_19949a0025fb49a486ef51724540aa19",
+			"modified": 1484696298035,
+			"created": 1484696259425,
+			"url": "http://iot.local/api/users/1",
+			"name": "Get Specific",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692178274,
+			"_type": "request"
+		},
+		{
+			"_id": "req_56c962fc4d56421cbe2957bdbf27b8e0",
+			"parentId": "fld_19949a0025fb49a486ef51724540aa19",
+			"modified": 1484696383565,
+			"created": 1484696259435,
+			"url": "http://iot.local/api/users/1",
+			"name": "Update",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\" : \"user zoveel\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1484692178224,
+			"_type": "request"
+		},
+		{
+			"_id": "req_aef2bba7a7e34836a3dee183fb99a76d",
+			"parentId": "fld_19949a0025fb49a486ef51724540aa19",
+			"modified": 1484696288582,
+			"created": 1484696259443,
+			"url": "http://iot.local/api/users",
+			"name": "List",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692178325,
+			"_type": "request"
+		},
+		{
+			"_id": "fld_5d58c2ddcee340859f7773ab4975a404",
+			"parentId": "fld_3acf2f21515d4027940e74e1fc0cd1c3",
+			"modified": 1484694672517,
+			"created": 1484694672517,
+			"name": "Lamp management",
+			"environment": {},
+			"metaSortKey": -1484694672517,
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_7b2c56c15b784e88a1f8c5a3ccb0817b",
+			"parentId": "fld_3acf2f21515d4027940e74e1fc0cd1c3",
+			"modified": 1484694717950,
+			"created": 1484694717950,
+			"name": "Sensor Management",
+			"environment": {},
+			"metaSortKey": -1484694717950,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_198e7150fd46434f95719f576097ab9f",
+			"parentId": "fld_3acf2f21515d4027940e74e1fc0cd1c3",
+			"modified": 1484693503105,
+			"created": 1484692975123,
+			"url": "http://iot.local/api/groups/1",
+			"name": "Get Specific",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692951432,
+			"_type": "request"
+		},
+		{
+			"_id": "req_34871014896041628e9901777728def1",
+			"parentId": "fld_3acf2f21515d4027940e74e1fc0cd1c3",
+			"modified": 1484693508042,
+			"created": 1484692978050,
+			"url": "http://iot.local/api/groups/1",
+			"name": "Delete",
+			"method": "DELETE",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692951382,
+			"_type": "request"
+		},
+		{
+			"_id": "req_67a828fa70cf452a86f86ff722022c9d",
+			"parentId": "fld_3acf2f21515d4027940e74e1fc0cd1c3",
+			"modified": 1484692959094,
+			"created": 1484692951532,
+			"url": "http://iot.local/api/groups",
+			"name": "List",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692951532,
+			"_type": "request"
+		},
+		{
+			"_id": "req_dc06c37bedfa41d3b784ec4134aa23b5",
+			"parentId": "fld_3acf2f21515d4027940e74e1fc0cd1c3",
+			"modified": 1484693319031,
+			"created": 1484692963927,
+			"url": "http://iot.local/api/rooms/2/group",
+			"name": "Create (note the endpoint)",
+			"method": "POST",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692951482,
+			"_type": "request"
+		},
+		{
+			"_id": "req_03e055c05c8a40ffbaab27459101b4d6",
+			"parentId": "fld_6ebd56ece44d4dbca92463eadaf654ec",
+			"modified": 1484694330875,
+			"created": 1484694300149,
+			"url": "http://iot.local/api/lamps/1",
+			"name": "Get Specific",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692178274,
+			"_type": "request"
+		},
+		{
+			"_id": "req_32df1b20d1434e10a8db48d54224fed3",
+			"parentId": "fld_6ebd56ece44d4dbca92463eadaf654ec",
+			"modified": 1484694354825,
+			"created": 1484694300158,
+			"url": "http://iot.local/api/lamps/1",
+			"name": "Delete",
+			"method": "DELETE",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692178223,
+			"_type": "request"
+		},
+		{
+			"_id": "req_3492595c22134b2397baa197e2a0545e",
+			"parentId": "fld_6ebd56ece44d4dbca92463eadaf654ec",
+			"modified": 1484694352309,
+			"created": 1484694300137,
+			"url": "http://iot.local/api/lamps/1",
+			"name": "Update",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"x\" : 37\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1484692178224,
+			"_type": "request"
+		},
+		{
+			"_id": "req_76cd32620c5d4429a6c49cdad387e12e",
+			"parentId": "fld_6ebd56ece44d4dbca92463eadaf654ec",
+			"modified": 1484694497430,
+			"created": 1484694300118,
+			"url": "http://iot.local/api/lamps/1/group",
+			"name": "Get group",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692178273,
+			"_type": "request"
+		},
+		{
+			"_id": "req_91ea6a387c564a248330868c34e962b7",
+			"parentId": "fld_6ebd56ece44d4dbca92463eadaf654ec",
+			"modified": 1484694471373,
+			"created": 1484694300129,
+			"url": "http://iot.local/api/groups/1/lamp",
+			"name": "Create (note the endpoint)",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"x\" : 54,\n\t\"y\" : 12,\n\t\"color\" : \"(1, 1, 1)\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1484692178324,
+			"_type": "request"
+		},
+		{
+			"_id": "req_f8154b764d7641278cfe590a1ec5c564",
+			"parentId": "fld_6ebd56ece44d4dbca92463eadaf654ec",
+			"modified": 1484694316926,
+			"created": 1484694300123,
+			"url": "http://iot.local/api/lamps",
+			"name": "List",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692178325,
+			"_type": "request"
+		},
+		{
+			"_id": "req_1463a8c3540d4faeb7cdb8bd3b379823",
+			"parentId": "fld_bc2cd2dd48b34432a776519310458f66",
+			"modified": 1484692507372,
+			"created": 1484692494778,
+			"url": "http://iot.local/api/rooms/1",
+			"name": "Delete",
+			"method": "DELETE",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692178223,
+			"_type": "request"
+		},
+		{
+			"_id": "req_36db6e99964b4feb9aa3e8044eed1e9f",
+			"parentId": "fld_bc2cd2dd48b34432a776519310458f66",
+			"modified": 1484692392484,
+			"created": 1484692383226,
+			"url": "http://iot.local/api/rooms/1",
+			"name": "Get Specific",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692178274,
+			"_type": "request"
+		},
+		{
+			"_id": "req_5e3f7009da4749aa8a30d1fd663abc18",
+			"parentId": "fld_bc2cd2dd48b34432a776519310458f66",
+			"modified": 1484692426993,
+			"created": 1484692415360,
+			"url": "http://iot.local/api/rooms/1",
+			"name": "Update",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\" : \"room12\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1484692178224,
+			"_type": "request"
+		},
+		{
+			"_id": "req_b2a17895521448afa37c3dd4468882e5",
+			"parentId": "fld_bc2cd2dd48b34432a776519310458f66",
+			"modified": 1484692227478,
+			"created": 1484692178325,
+			"url": "http://iot.local/api/rooms",
+			"name": "List",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692178325,
+			"_type": "request"
+		},
+		{
+			"_id": "req_f453f13a2235477eb984205f1e066075",
+			"parentId": "fld_bc2cd2dd48b34432a776519310458f66",
+			"modified": 1484692259095,
+			"created": 1484692220630,
+			"url": "http://iot.local/api/rooms",
+			"name": "Create",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\" : \"room1\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1484692178324,
+			"_type": "request"
+		},
+		{
+			"_id": "req_01f1d07ccf844f348e4ca06de65b0665",
+			"parentId": "fld_ce81e3f77ac34a84a80ef7720aa44124",
+			"modified": 1484694274340,
+			"created": 1484694232047,
+			"url": "http://iot.local/api/sensors/2/group",
+			"name": "Get group",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692178273,
+			"_type": "request"
+		},
+		{
+			"_id": "req_08dd58576e4744cba4ccf3e833a8a5cd",
+			"parentId": "fld_ce81e3f77ac34a84a80ef7720aa44124",
+			"modified": 1484693590723,
+			"created": 1484693561703,
+			"url": "http://iot.local/api/sensors",
+			"name": "List",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692178325,
+			"_type": "request"
+		},
+		{
+			"_id": "req_293a2c186e1f4230a6d040d9206ab3c0",
+			"parentId": "fld_ce81e3f77ac34a84a80ef7720aa44124",
+			"modified": 1484693840186,
+			"created": 1484693561707,
+			"url": "http://iot.local/api/groups/1/sensor",
+			"name": "Create (note the endpoint)",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"x\" : 12,\n\t\"y\" : 8\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1484692178324,
+			"_type": "request"
+		},
+		{
+			"_id": "req_428b1a08af804177a6773b3ef07f25c5",
+			"parentId": "fld_ce81e3f77ac34a84a80ef7720aa44124",
+			"modified": 1484694016431,
+			"created": 1484693561699,
+			"url": "http://iot.local/api/sensors/1",
+			"name": "Update",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"x\" : 37\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1484692178224,
+			"_type": "request"
+		},
+		{
+			"_id": "req_8659e40d819a4882a57c60a70ef06e89",
+			"parentId": "fld_ce81e3f77ac34a84a80ef7720aa44124",
+			"modified": 1484693596783,
+			"created": 1484693561693,
+			"url": "http://iot.local/api/sensors/1",
+			"name": "Get Specific",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692178274,
+			"_type": "request"
+		},
+		{
+			"_id": "req_c39ccff74e984d50965b9a23f6fd425a",
+			"parentId": "fld_ce81e3f77ac34a84a80ef7720aa44124",
+			"modified": 1484693600879,
+			"created": 1484693561689,
+			"url": "http://iot.local/api/sensors/1",
+			"name": "Delete",
+			"method": "DELETE",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692178223,
+			"_type": "request"
+		},
+		{
+			"_id": "req_b7089085ea3e445699a9152610f03c83",
+			"parentId": "fld_e45d4bf0cb4a49bfb40283fe42ed12e3",
+			"modified": 1484699702480,
+			"created": 1484698811099,
+			"url": "http://iot.local/api/priorities/1",
+			"name": "Retrieve",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484698811099,
+			"_type": "request"
+		},
+		{
+			"_id": "req_f517e38c170b461e953647031b09147f",
+			"parentId": "fld_e45d4bf0cb4a49bfb40283fe42ed12e3",
+			"modified": 1484699693746,
+			"created": 1484698982428,
+			"url": "http://iot.local/api/priorities/1",
+			"name": "Set",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "[\n\t{\n\t\t\"user_location_x\" : 1,\n\t\t\"user_location_y\" : 2,\n\t\t\"low_light\" : true,\n\t\t\"light_color\": \"(1, 1, 1)\",\n\t\t\"user_id\" : 2\n\t}\n]"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1484698982428,
+			"_type": "request"
+		},
+		{
+			"_id": "req_b16bf19e7df54c64960382c23d45b09c",
+			"parentId": "fld_5d58c2ddcee340859f7773ab4975a404",
+			"modified": 1484694807594,
+			"created": 1484694793009,
+			"url": "http://iot.local/api/groups/1/lamp",
+			"name": "Create",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"x\" : 54,\n\t\"y\" : 12,\n\t\"color\" : \"(1, 1, 1)\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1484692951257,
+			"_type": "request"
+		},
+		{
+			"_id": "req_de52f97dffaf405595f58abcbbc596d8",
+			"parentId": "fld_5d58c2ddcee340859f7773ab4975a404",
+			"modified": 1484694735517,
+			"created": 1484693304637,
+			"url": "http://iot.local/api/groups/1/lamps",
+			"name": "Lamps",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692951307,
+			"_type": "request"
+		},
+		{
+			"_id": "req_f75e7d64dc6346f5bc7b32b4e04fc21e",
+			"parentId": "fld_5d58c2ddcee340859f7773ab4975a404",
+			"modified": 1484694834706,
+			"created": 1484694821718,
+			"url": "http://iot.local/api/groups/1/lamps/s",
+			"name": "Attach",
+			"method": "POST",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692951207,
+			"_type": "request"
+		},
+		{
+			"_id": "req_07262e9437c04f59aee9a4f0feadcd60",
+			"parentId": "fld_7b2c56c15b784e88a1f8c5a3ccb0817b",
+			"modified": 1484694787687,
+			"created": 1484694755462,
+			"url": "http://iot.local/api/groups/1/sensor",
+			"name": "Create",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"x\" : 12,\n\t\"y\" : 8\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1484692178323,
+			"_type": "request"
+		},
+		{
+			"_id": "req_7ce32dd7f97943d7b4b4689b8dcad95a",
+			"parentId": "fld_7b2c56c15b784e88a1f8c5a3ccb0817b",
+			"modified": 1484694781115,
+			"created": 1484694770827,
+			"url": "http://iot.local/api/groups/1/sensors",
+			"name": "Sensors",
+			"method": "GET",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692178373,
+			"_type": "request"
+		},
+		{
+			"_id": "req_d5d4e46e22e746eba1c82812d4909671",
+			"parentId": "fld_7b2c56c15b784e88a1f8c5a3ccb0817b",
+			"modified": 1484694917541,
+			"created": 1484694839828,
+			"url": "http://iot.local/api/groups/1/sensors/2",
+			"name": "Attach",
+			"method": "POST",
+			"body": {
+				"text": ""
+			},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1484692178322,
+			"_type": "request"
+		}
+	]
+}
