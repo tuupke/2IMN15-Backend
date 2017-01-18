@@ -3,17 +3,17 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Clue\React\Block;
+use Illuminate\Support\Facades\Storage;
+use GuzzleHttp\Client;
 
-class mdns extends Command
-{
+
+class mdns extends Command {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
     protected $signature = 'mdns:run';
-
     /**
      * The console command description.
      *
@@ -26,8 +26,7 @@ class mdns extends Command
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct () {
         parent::__construct();
     }
 
@@ -36,10 +35,7 @@ class mdns extends Command
      *
      * @return mixed
      */
-    public function handle()
-    {
-
-//        $outp = `gtimeout 3s dns-sd -L Broker-Room-1 _http._tcp. local`;
+    public function handle () {
         $outp = "
         
          * Lookup Broker-Room-1._http._tcp..local
@@ -49,19 +45,25 @@ DATE: ---Tue 17 Jan 2017---
  “/broker
          ";
 
-        $matches= [];
-        $match = "None found";
+        $matches = [];
+        $match = null;
         (preg_match("/can be reached .*? \\(/", $outp, $matches));
-        if(count($matches)){
-
-            $match = str_replace(['can be reached at ', '('], ['',''], $matches[0]);
-
-
-            // Send local IP to /api/register/?host=<IP>
+        if (count($matches)) {
+            $match = str_replace(['can be reached at ', '('], ['', ''], $matches[0]);
         }
 
-        print_r($match);
+        if (!is_null($match)) {
+            print_r(trim($match));
+            Storage::put('ip', trim($match));
 
+            // Create a client with a base URI
+            $client = new Client(['base_uri' => 'http://' . trim($match) . '/api']);
+            // Send a request to https://foo.com/api/test
+            $response = $client->request('GET', 'register/?host=' . gethostbyname(gethostname()));
 
+            var_dump($response);
+        }
+
+        echo "Found: $match\n";
     }
 }

@@ -46,12 +46,9 @@ class Handler extends ExceptionHandler
     {
         $json = json_decode($exception->getMessage());
 
-        return $exception->getStatusCode() === 200
-            ? $exception->getMessage()
-            : \Response::json([
-                "status_code"       => $exception->getStatusCode(),
+        return  \Response::json([
                 "error_description" => $json !== false && !is_null($json) ? $json : $exception->getMessage(),
-            ], $exception->getStatusCode());
+            ]);
     }
 
     /**
