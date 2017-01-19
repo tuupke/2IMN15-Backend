@@ -8,7 +8,7 @@ class Room extends BaseModel {
         "name",
     ];
 
-    public function groups(){
-        return $this->hasMany(Group::class);
+    public function desks(){
+        return $this->hasMany(Desk::class);
     }
 }

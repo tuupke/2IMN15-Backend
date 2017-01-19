@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "abc1d3a5d9fed57c8e9b2261c2c8751b",
+    "content-hash": "07e5a68ba85fb0063de4aa5c7a73c55c",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -2493,6 +2493,42 @@
                 "dump"
             ],
             "time": "2017-01-02T20:31:54+00:00"
+        },
+        {
+            "name": "tuupke/laravel-finalizer",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tuupke/laravel-finalizer.git",
+                "reference": "bd38c4d605a486f529988f01eed676d3d81fad82"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tuupke/laravel-finalizer/zipball/bd38c4d605a486f529988f01eed676d3d81fad82",
+                "reference": "bd38c4d605a486f529988f01eed676d3d81fad82",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tuupke\\Finalizer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mart Pluijmaekers",
+                    "email": "mart@tuupke.nl"
+                }
+            ],
+            "description": "Simple package with helpers to handle execution after closed connections",
+            "time": "2016-11-28T16:09:22+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

@@ -3,18 +3,27 @@
 namespace App\Models;
 
 class Lamp extends BaseModel {
-
     protected $fillable = [
+        "endpoint",
         "x",
         "y",
-        "color"
+        "color",
+        "low_light",
+        "group_id"
     ];
 
-    public function group(){
+    protected $endpointName = "lights";
+    protected $map = [
+        "color"                  => 5,
+        "low_light"              => 6,
+        "priority_ownership_url" => 12,
+    ];
+
+    public function group () {
         return $this->belongsTo(Group::class);
     }
 
-    public function priorities(){
+    public function priorities () {
         return $this->hasMany(Priority::class);
     }
 }

@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,9 +11,10 @@ use Illuminate\Http\Request;
 |
 */
 
+
+Route::post('room', 'RoomController@create');
 Route::group(['prefix' => 'rooms'], function(){
     Route::get('', 'RoomController@retrieve');
-    Route::post('', 'RoomController@create');
 
     Route::group(['prefix' => '{id}'], function() {
         Route::get('', 'RoomController@single');
@@ -23,21 +22,37 @@ Route::group(['prefix' => 'rooms'], function(){
 
         Route::delete('', 'RoomController@delete');
 
-        Route::post('group', 'RoomController@createGroup');
+        Route::post('desk', 'RoomController@createDesk');
 
-        Route::group(["prefix" => "groups"], function(){
-            Route::get('', 'RoomController@groups');
-            Route::post('{group_id', 'RoomController@addGroup');
+        Route::group(["prefix" => "desks"], function(){
+            Route::get('', 'RoomController@desks');
         });
-
     });
 });
+
+Route::group(['prefix' => 'desks'], function(){
+    Route::get('', 'DeskController@retrieve');
+
+    Route::group(['prefix' => '{id}'], function() {
+        Route::get('', 'DeskController@single');
+        Route::put('', 'DeskController@update');
+
+        Route::delete('', 'DeskController@delete');
+
+        Route::post('group', 'DeskController@createGroup');
+
+        Route::get('groups', 'DeskController@groups');
+        Route::get('users', 'DeskController@users');
+    });
+});
+
 
 Route::group(['prefix' => 'groups'], function(){
     Route::get('', 'GroupController@retrieve');
 
     Route::group(['prefix' => '{id}'], function() {
         Route::get('', 'GroupController@single');
+        Route::put('', 'GroupController@update');
 
         Route::delete('', 'GroupController@delete');
 
@@ -58,8 +73,6 @@ Route::group(['prefix' => 'sensors'], function(){
         Route::get('', 'SensorController@single');
         Route::put('', 'SensorController@update');
         Route::get('group', 'SensorController@getGroup');
-
-        Route::delete('', 'SensorController@delete');
     });
 });
 
@@ -71,13 +84,15 @@ Route::group(['prefix' => 'lamps'], function(){
         Route::put('', 'LampController@update');
         Route::get('group', 'LampController@getGroup');
 
-        Route::delete('', 'LampController@delete');
+        Route::get('priority', 'LampController@ownership');
+        Route::post('priority', 'LampController@setOwnership');
+
     });
 });
 
+Route::post('user', 'UserController@create');
 Route::group(['prefix' => 'users'], function(){
     Route::get('', 'UserController@retrieve');
-    Route::post('', 'UserController@create');
 
     Route::group(['prefix' => '{id}'], function() {
         Route::get('', 'UserController@single');
@@ -88,14 +103,8 @@ Route::group(['prefix' => 'users'], function(){
 });
 
 Route::group(['prefix' => "priorities"], function(){
-    Route::group(['prefix' => "{lamp}"], function(){
-        Route::get('', 'LampController@ownership');
-        Route::post('', 'LampController@setOwnership');
-    });
+    Route::get('{lamp}', 'PriorityController@ownership');
 });
-
-// Below => working
-
 
 Route::group(['prefix' => 'stats'], function (){
 

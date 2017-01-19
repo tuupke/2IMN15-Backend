@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Group;
 use App\Models\Room;
 use Illuminate\Http\Request;
 
@@ -35,23 +34,16 @@ class RoomController extends Controller
         $room->delete();
     }
 
-    public function groups ($id) {
+    public function desks ($id) {
         $room = Room::findOrFail($id);
 
-        return $room->groups();
+        return $room->desks;
     }
 
-    public function addGroup ($id, $groupId) {
-        $room = Room::findOrFail($id);
-        $group = Group::findOrFail($groupId);
-
-        $room->groups()->save($group);
-    }
-
-    public function createGroup($id, Request $r){
+    public function createDesk($id, Request $r){
         $room = Room::findOrFail($id);
 
-        return $room->groups()->create($r->all());
+        return $room->desks()->create($r->all());
     }
 
 }

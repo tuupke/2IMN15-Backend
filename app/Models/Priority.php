@@ -11,6 +11,7 @@ class Priority extends BaseModel {
         "low_light",
         "light_color",
         "user_id",
+        "sensor_id",
     ];
 
     public function lamp(){
@@ -19,5 +20,9 @@ class Priority extends BaseModel {
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function sensor(){
+        return $this->belongsTo(Sensor::class);
     }
 }

@@ -4,8 +4,13 @@ namespace App\Models;
 
 class Group extends BaseModel {
 
-    public function room(){
-        return $this->belongsTo(Room::class);
+    protected $fillable = [
+        "name",
+        "desk_id"
+    ];
+
+    public function desk(){
+        return $this->belongsTo(Desk::class);
     }
 
     public function lamps(){
@@ -14,9 +19,5 @@ class Group extends BaseModel {
 
     public function sensors(){
         return $this->hasMany(Sensor::class);
-    }
-
-    public function rooms() {
-        return $this->hasMany(Group::class);
     }
 }

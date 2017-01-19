@@ -10,5 +10,11 @@ class User extends BaseModel {
         "email",
         "facepattern",
         "type",
+        "desk_id",
+        "group_id",
     ];
+
+    public function desk() {
+        return $this->belongsTo(Desk::class);
+    }
 }

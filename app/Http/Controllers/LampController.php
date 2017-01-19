@@ -6,6 +6,7 @@ use App\Models\Group;
 use App\Models\Lamp;
 use App\Models\Priority;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 class LampController extends Controller
 {
@@ -43,14 +44,27 @@ class LampController extends Controller
 
         return $priorities;
     }
+
     public function setOwnership($lampId, Request $r){
         $lamp = Lamp::findOrFail($lampId);
         \DB::table('priorities')->where('lamp_id', $lampId)->delete();
 
-        $arr = $r->all();
+        $arr = $r->c;
+
         foreach($arr as $key => $value){
             $lamp->priorities()->create(array_merge(["index" => $key], $value));
         }
+
+        $match = \Storage::get('ip');
+        $client = new Client(['base_uri' => 'http://' . trim($match) . '/api/']);
+
+        $endpointName ="lights";
+        $endpoint = $lamp->endpoint;
+        $number = 12;
+
+        $value = gethostbyname(gethostname())."/api/priorities/" . $lampId;
+
+        $r = $client->request('GET', "$endpointName/$endpoint/$number/set?value=" . ("http://" . $value));
 
         return $this->ownership($lampId);
     }

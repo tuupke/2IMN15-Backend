@@ -22,6 +22,15 @@ class GroupController extends Controller
         $group->delete();
     }
 
+    public function update ($id, Request $r) {
+        $room = Group::findOrFail($id);
+
+        $room->update($r->all());
+        $room->save();
+
+        return $room;
+    }
+
     public function lamps($id){
         $group = Group::findOrFail($id);
 
